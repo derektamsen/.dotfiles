@@ -112,7 +112,7 @@ set_terminal_appearance () {
 	#export PS1='[\t \u@\h: \W]\$ '
 
 	#export TITLEBAR=""
-	export PS1="\\n<<< \t \h [$HII\w$NM] >>>\\n[$NM$SI\u]$ $NM"
+	#export PS1="\\n<<< \t \h [$HII\w$NM] >>>\\n[$NM$SI\u]$ $NM"
 
 	# Terminal sets TERM_PROGRAM so we can tell it apart from regular VT100
 	case "$TERM_PROGRAM" in
