@@ -142,7 +142,7 @@ set_terminal_appearance () {
 }
 
 #### Run all the functions ####
-#source_bashrc
+source_bashrc
 set_path
 set_editor
 set_visual_view
