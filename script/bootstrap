@@ -147,7 +147,7 @@ install_dotfiles () {
 }
 
 install_desktopfiles () {
-    if [[ -f /etc/issue* ]] && [[ `cat /etc/issue* | grep -i ubuntu` ]]
+    if grep -Fq "Ubuntu" /etc/issue
     then
       info 'installing desktopfiles'
 
@@ -157,7 +157,7 @@ install_desktopfiles () {
 
       for source in `find ${DOTFILES_ROOT} -maxdepth 2 -name \*.desktop`
       do
-        dest="${HOME}/.local/share/applications/`basename \"${source%.*}\"`"
+        dest="${HOME}/.local/share/applications/`basename \"${source}\"`"
 
         if [[ -f ${dest} ]] || [[ -d ${dest} ]]
         then
