@@ -5,7 +5,7 @@ Name=Sublime Text 2
 # From Ubuntu's language-pack-kde-XX-base packages, version 9.04-20090413.
 GenericName=Text Editor
 
-Exec=/usr/local/bin/sublime
+Exec=/usr/local/bin/sublime %f
 Terminal=false
 Icon=/opt/sublimetext/Icon/48x48/sublime_text.png
 Type=Application
