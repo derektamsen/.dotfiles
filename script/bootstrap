@@ -43,6 +43,37 @@ setup_gitconfig () {
   fi
 }
 
+setup_sublime2 () {
+    info 'setup sublime text 2'
+    
+    case $OSTYPE in
+        darwin*)
+            dest="${HOME}/Library/Application Support/Sublime Text 2/Packages/"
+            
+            source="${DOTFILES_ROOT}/sublime2/User"
+            link_files "${source}" "${dest}"
+            
+            for source in `find "${DOTFILES_ROOT}/sublime2" -maxdepth 2 -name \*.tmTheme -o -maxdepth 2 -name \*.tmbundle`
+            do
+                dest="${HOME}/Library/Application Support/Sublime Text 2/Packages/`basename \"${source%.*}\"`"
+                link_files "${source}" "${dest}"
+            done
+        ;;
+        gnu-linux*)
+            dest="${HOME}/.config/sublime-text-2/Packages/"
+            
+            source="${DOTFILES_ROOT}/sublime2/User"
+            link_files "${source}" "${dest}"
+            
+            for source in `find "${DOTFILES_ROOT}/sublime2" -maxdepth 2 -name \*.tmTheme -o -maxdepth 2 -name \*.tmbundle`
+            do
+                dest="${HOME}/.config/sublime-text-2/Packages/`basename \"${source%.*}\"`"
+                link_files "${source}" "${dest}"
+            done
+        ;;
+    esac
+}
+
 link_files () {
   ln -s "${1}" "${2}"
   success "linked ${1} to ${2}"
@@ -115,8 +146,82 @@ install_dotfiles () {
   done
 }
 
+install_desktopfiles () {
+    if [[ -f /etc/issue* ]] && [[ `cat /etc/issue* | grep -i ubuntu` ]]
+    then
+      info 'installing desktopfiles'
+
+      overwrite_all=false
+      backup_all=false
+      skip_all=false
+
+      for source in `find ${DOTFILES_ROOT} -maxdepth 2 -name \*.desktop`
+      do
+        dest="${HOME}/.local/share/applications/`basename \"${source%.*}\"`"
+
+        if [[ -f ${dest} ]] || [[ -d ${dest} ]]
+        then
+
+          overwrite=false
+          backup=false
+          skip=false
+
+          if [ "${overwrite_all}" == "false" ] && [ "${backup_all}" == "false" ] && [ "${skip_all}" == "false" ]
+          then
+            user "File already exists: `basename ${source}`, what do you want to do? [s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all?"
+            read -n 1 action
+
+            case "${action}" in
+              o )
+                overwrite=true;;
+              O )
+                overwrite_all=true;;
+              b )
+                backup=true;;
+              B )
+                backup_all=true;;
+              s )
+                skip=true;;
+              S )
+                skip_all=true;;
+              * )
+                ;;
+            esac
+          fi
+
+          if [[ "${overwrite}" == "true" ]] || [[ "${overwrite_all}" == "true" ]]
+          then
+            rm -rf "${dest}"
+            success "removed ${dest}"
+          fi
+
+          if [[ "${backup}" == "true" ]] || [[ "${backup_all}" == "true" ]]
+          then
+            mv "${dest}" "${dest}.backup"
+            success "moved ${dest} to ${dest}.backup"
+          fi
+
+          if [[ "${skip}" == "false" ]] && [[ "${skip_all}" == "false" ]]
+          then
+            link_files "${source}" "${dest}"
+          else
+            success "skipped ${source}"
+          fi
+
+        else
+          link_files "${source}" "${dest}"
+        fi
+
+      done
+  fi
+}
+
+
+
+setup_sublime2
 setup_gitconfig
 install_dotfiles
+install_desktopfiles
 
 echo ''
 echo '  All installed!'
