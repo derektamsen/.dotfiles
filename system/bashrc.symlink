@@ -41,7 +41,9 @@ case "$TERM" in
 esac
 
 # alias __git_ps1 for mac os x
-alias __git_ps1="git branch 2>/dev/null | grep '*' | sed 's/* \(.*\)/(\1)/'"
+if [[ "${OSTYPE}" =~ darwin.* ]]; then
+    alias __git_ps1="git branch 2>/dev/null | grep '*' | sed 's/* \(.*\)/(\1)/'"
+fi
 GIT_PS1_SHOWDIRTYSTATE=true
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
