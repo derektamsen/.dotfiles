@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# install rvm for the current user
+install_rvm () {
+    if ! [[ `type -P rvm` ]]; then
+        sh -c '\curl -L https://get.rvm.io | bash -s stable'
+    fi
+}
+
+install_rvm
