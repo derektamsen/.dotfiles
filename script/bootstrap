@@ -59,7 +59,7 @@ setup_sublime2 () {
                 link_files "${source}" "${dest}"
             done
         ;;
-        gnu-linux*)
+        linux*)
             dest="${HOME}/.config/sublime-text-2/Packages/"
             
             source="${DOTFILES_ROOT}/sublime2/User"
