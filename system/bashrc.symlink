@@ -40,10 +40,7 @@ case "$TERM" in
     xterm-color) color_prompt=yes;;
 esac
 
-# alias __git_ps1 for mac os x
-if [[ "${OSTYPE}" =~ darwin.* ]]; then
-    alias __git_ps1="git branch 2>/dev/null | grep '*' | sed 's/* \(.*\)/(\1)/'"
-fi
+# show git repo status in prompt
 GIT_PS1_SHOWDIRTYSTATE=true
 
 # uncomment for a colored prompt, if the terminal has the capability; turned

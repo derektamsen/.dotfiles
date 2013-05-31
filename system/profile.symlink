@@ -35,6 +35,11 @@ set_path() {
 			if [ -f /opt/local/etc/bash_completion ]; then
 			      . /opt/local/etc/bash_completion
 			fi
+			
+			# git prompt
+			if [ -f /opt/local/share/git-core/git-prompt.sh ]; then
+			    . /opt/local/share/git-core/git-prompt.sh
+			fi
 			;;
 	esac
 }
