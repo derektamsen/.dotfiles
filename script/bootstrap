@@ -5,6 +5,11 @@
 
 DOTFILES_ROOT="`pwd`"
 
+# global overwrite, backup, or skip
+overwrite_all=false
+backup_all=false
+skip_all=false
+
 set -e
 
 echo ''
@@ -48,27 +53,27 @@ setup_sublime2 () {
     
     case $OSTYPE in
         darwin*)
-            dest="${HOME}/Library/Application Support/Sublime Text 2/Packages/"
+            dest="${HOME}/Library/Application Support/Sublime Text 2/Packages/User"
             
             source="${DOTFILES_ROOT}/sublime2/User"
-            link_files "${source}" "${dest}"
+            overwrite_backup_skip_link "${source}" "${dest}"
             
             for source in `find "${DOTFILES_ROOT}/sublime2" -maxdepth 2 -name \*.tmTheme -o -maxdepth 2 -name \*.tmbundle`
             do
                 dest="${HOME}/Library/Application Support/Sublime Text 2/Packages/`basename \"${source%.*}\"`"
-                link_files "${source}" "${dest}"
+                overwrite_backup_skip_link "${source}" "${dest}"
             done
         ;;
         linux*)
-            dest="${HOME}/.config/sublime-text-2/Packages/"
+            dest="${HOME}/.config/sublime-text-2/Packages/User"
             
             source="${DOTFILES_ROOT}/sublime2/User"
-            link_files "${source}" "${dest}"
+            overwrite_backup_skip_link "${source}" "${dest}"
             
             for source in `find "${DOTFILES_ROOT}/sublime2" -maxdepth 2 -name \*.tmTheme -o -maxdepth 2 -name \*.tmbundle`
             do
                 dest="${HOME}/.config/sublime-text-2/Packages/`basename \"${source%.*}\"`"
-                link_files "${source}" "${dest}"
+                overwrite_backup_skip_link "${source}" "${dest}"
             done
         ;;
     esac
@@ -140,10 +145,6 @@ overwrite_backup_skip_link () {
 install_dotfiles () {
   info 'installing dotfiles'
 
-  overwrite_all=false
-  backup_all=false
-  skip_all=false
-
   for source in `find ${DOTFILES_ROOT} -maxdepth 2 -name \*.symlink`
   do
     dest="${HOME}/.`basename \"${source%.*}\"`"
@@ -157,10 +158,6 @@ install_desktopfiles () {
     if grep -Fq "Ubuntu" /etc/issue
     then
       info 'installing desktopfiles'
-
-      overwrite_all=false
-      backup_all=false
-      skip_all=false
 
       for source in `find ${DOTFILES_ROOT} -maxdepth 2 -name \*.desktop`
       do
