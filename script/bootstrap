@@ -196,12 +196,28 @@ install_svn_conf () {
   done
 }
 
+install_mac_prefs () {
+  info 'installing mac prefs'
+
+  if [[ $OSTYPE =~ darwin* ]]
+  then
+    for source in `find ${DOTFILES_ROOT} -maxdepth 2 -name \*.mac_pref`
+    do
+      dest="${HOME}/Library/Preferences/`basename \"${source%.*}.plist\"`"
+
+      overwrite_backup_skip_link "${source}" "${dest}"
+
+    done
+  fi
+}
+
 setup_sublime2
 setup_gitconfig
 install_dotfiles
 install_desktopfiles
 install_gnupg_conf
 install_svn_conf
+install_mac_prefs
 
 echo ''
 echo '  All installed!'
