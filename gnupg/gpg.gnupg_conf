@@ -1,0 +1,5 @@
+keyserver keyserver.ubuntu.com
+default-key 2A89988294A40F84AD27DED26B52F71A43C9227A
+encrypt-to 2A89988294A40F84AD27DED26B52F71A43C9227A
+#comment
+no-emit-version

@@ -169,12 +169,23 @@ install_desktopfiles () {
   fi
 }
 
+install_gnupg_conf () {
+  info 'installing gnupg files'
 
+  for source in `find ${DOTFILES_ROOT} -maxdepth 2 -name \*.gnupg_conf`
+  do
+    dest="${HOME}/.gnupg/`basename \"${source%.*}.conf\"`"
+
+    overwrite_backup_skip_link "${source}" "${dest}"
+
+  done
+}
 
 setup_sublime2
 setup_gitconfig
 install_dotfiles
 install_desktopfiles
+install_gnupg_conf
 
 echo ''
 echo '  All installed!'
