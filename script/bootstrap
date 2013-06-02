@@ -79,6 +79,17 @@ setup_sublime2 () {
     esac
 }
 
+setup_iterm2 () {
+  if ! [ -f iterm2/com.googlecode.iterm2.mac_pref ]
+  then
+    info 'setup iterm2'
+
+    cp iterm2/com.googlecode.iterm2.mac_pref.example iterm2/com.googlecode.iterm2.mac_pref
+
+    success 'iterm2'
+  fi
+}
+
 link_files () {
   ln -s "${1}" "${2}"
   success "linked ${1} to ${2}"
@@ -213,6 +224,7 @@ install_mac_prefs () {
 
 setup_sublime2
 setup_gitconfig
+setup_iterm2
 install_dotfiles
 install_desktopfiles
 install_gnupg_conf
