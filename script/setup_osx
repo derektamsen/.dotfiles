@@ -11,6 +11,7 @@ install_rvm () {
 install_brew () {
     if ! [[ `type -P brew` ]]; then
         ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+        brew doctor
     fi
 }
 
