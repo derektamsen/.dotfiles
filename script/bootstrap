@@ -79,6 +79,21 @@ setup_sublime2 () {
     esac
 }
 
+setup_textmate2 () {
+    info 'setup textmate2'
+
+    case $OSTYPE in
+        darwin*)
+	    for source in `find "${DOTFILES_ROOT}/textmate2" -maxdepth 2 -name \*.tmbundle`
+            do
+                dest="${HOME}/Library/Application Support/TextMate/Managed/Bundles/`basename \"${source}\"`"
+                overwrite_backup_skip_link "${source}" "${dest}"
+            done
+            ;;
+    esac
+
+}
+
 setup_iterm2 () {
   if ! [ -f iterm2/com.googlecode.iterm2.mac_pref ]
   then
@@ -223,6 +238,7 @@ install_mac_prefs () {
 }
 
 setup_sublime2
+setup_textmate2
 setup_gitconfig
 setup_iterm2
 install_dotfiles
