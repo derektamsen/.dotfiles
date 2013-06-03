@@ -1,5 +1,13 @@
 # Basic Settings
 #
+include          = {*,.tm_properties,.htaccess,.*}
+showInvisibles   = true
+showWrapColumn   = false
+softTabs         = true
+softWrap         = true
+spellChecking    = true
+tabSize          = 2
+theme            = A4299D9B-1DE5-4BC4-87F6-A757E71B1597
 fontName         = "Menlo"
 fontSize         = 12
 
