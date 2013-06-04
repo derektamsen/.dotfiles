@@ -76,7 +76,140 @@ install_ruby_versions () {
     fi
 }
 
-install_brew
-install_rvm
-install_gnu_commands
-install_ruby_versions
+configure_osx_prefs () {
+    info "configuring mac os x prefs"
+    # set the osx prefs the way I like them
+    # using https://github.com/mathiasbynens/dotfiles/blob/master/.osx as a guide
+    
+    # set sleep time to 30 min
+    sudo pmset -a sleep 30
+    success "setting sleep time to 30 min"
+    
+    # turn off the display after 7 min
+    sudo pmset -a displaysleep 7
+    success "setting display off time to 7 min"
+    
+    # Expand save panel by default
+    defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+    success "expand the save panel by default"
+    
+    # Expand print panel by default
+    defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+    success "expand the print panel by default"
+    
+    # Enable full keyboard access for all controls
+    # (e.g. enable Tab in modal dialogs)
+    defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+    success "allow tab between all items"
+    
+    # Enable access for assistive devices
+    echo -n 'a' | sudo tee /private/var/db/.AccessibilityAPIEnabled > /dev/null 2>&1
+    sudo chmod 444 /private/var/db/.AccessibilityAPIEnabled
+    success "enable access for assistive devices"
+    
+    # increase the key repeat speed
+    defaults write NSGlobalDomain KeyRepeat -int 2
+    success "setting keyboard repeat speed to 2"
+    
+    # decrease the delay before repeating keys
+    defaults write NSGlobalDomain InitialKeyRepeat -int 25
+    success "setting keyboard repeat delay to 25"
+    
+    # Automatically illuminate built-in MacBook keyboard in low light
+    defaults write com.apple.BezelServices kDim -bool true
+    # Turn off keyboard illumination when computer is not used for 5 minutes
+    defaults write com.apple.BezelServices kDimTime -int 300
+    success "turn off keyboard backlight after 5 min"
+    
+    # Require password immediately after sleep or screen saver begins
+    defaults write com.apple.screensaver askForPassword -int 1
+    defaults write com.apple.screensaver askForPasswordDelay -int 0
+    success "require screensaver password immediately"
+    
+    # Enable subpixel font rendering on non-Apple LCDs
+    defaults write NSGlobalDomain AppleFontSmoothing -int 2
+    success "enable font smoothing on non apple displays"
+    
+    # Show icons for hard drives, servers, and removable media on the desktop
+    defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
+    defaults write com.apple.finder ShowHardDrivesOnDesktop -bool true
+    defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
+    defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
+    success "showing desktop icons for HDD, servers, and removable media"
+    
+    # Finder: show status bar
+    defaults write com.apple.finder ShowStatusBar -bool true
+    success "finder show status bar"
+    
+    # Avoid creating .DS_Store files on network volumes
+    defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+    success "finder do not create ds_store files on network volumes"
+    
+    # Use column view in all Finder windows by default
+    # Four-letter codes for the other view modes: `icnv`, `Nlsv`, `clmv`, `Flwv`
+    defaults write com.apple.finder FXPreferredViewStyle -string "clmv"
+    success "finder use column view by default"
+    
+    # Disable the warning before emptying the Trash
+    defaults write com.apple.finder WarnOnEmptyTrash -bool false
+    success "finder disable empty trash warning"
+    
+    # Set the icon size of Dock items to 45 pixels
+    defaults write com.apple.dock tilesize -int 45
+    success "set dock icons to 45 pixels"
+    
+    # Automatically hide and show the Dock
+    defaults write com.apple.dock autohide -bool true
+    success "automatically hide and show the dock"
+    
+    # Don’t group windows by application in Mission Control
+    # (i.e. use the old Exposé behavior instead)
+    defaults write com.apple.dock expose-group-by-app -bool false
+    success "disable application grouping in mission control"
+    
+    # Don’t show Dashboard as a Space
+    defaults write com.apple.dock dashboard-in-overlay -bool true
+    success "show dashboard as an overlay"
+    
+    # Hot corners
+    # Possible values:
+    #  0: no-op
+    #  2: Mission Control
+    #  3: Show application windows
+    #  4: Desktop
+    #  5: Start screen saver
+    #  6: Disable screen saver
+    #  7: Dashboard
+    # 10: Put display to sleep
+    # 11: Launchpad
+    # 12: Notification Center
+    # Top left screen corner → Mission Control
+    defaults write com.apple.dock wvous-tl-corner -int 2
+    defaults write com.apple.dock wvous-tl-modifier -int 0
+    # Top right screen corner → Desktop
+    defaults write com.apple.dock wvous-tr-corner -int 4
+    defaults write com.apple.dock wvous-tr-modifier -int 0
+    # Bottom left screen corner → Start screen saver
+    defaults write com.apple.dock wvous-bl-corner -int 5
+    defaults write com.apple.dock wvous-bl-modifier -int 0
+    
+    # Prevent Safari from opening ‘safe’ files automatically after downloading
+    defaults write com.apple.Safari AutoOpenSafeDownloads -bool false
+    success "disable safari opening safe files"
+    
+    # Enable the Develop menu and the Web Inspector in Safari
+    defaults write com.apple.Safari IncludeDevelopMenu -bool true
+    defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
+    defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
+    success "enable safari developer menu"
+}
+
+if [[ $OSTYPE =~ darwin* ]]; then
+    install_brew
+    install_rvm
+    install_gnu_commands
+    install_ruby_versions
+    configure_osx_prefs
+else
+    fail "This can only be run on mac os x or darwin"
+fi
