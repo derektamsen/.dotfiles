@@ -32,7 +32,11 @@ install_rvm () {
             info "installing rvm"
             sh -c '\curl -L https://get.rvm.io | bash -s stable'
             rvm requirements
+        else
+            fail "Unable to locate brew"
         fi
+    else
+        info "rvm already installed"
     fi
 }
 
@@ -42,16 +46,23 @@ install_brew () {
         info "installing brew"
         ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
         brew doctor
+    else
+        info "Updating brew"
+        brew update
     fi
 }
 
 install_gnu_commands () {
     if [[ `type -P brew` ]]; then
-        to_install=("wget" "curl" "curl-ca-bundle" "vim" "subversion" "git" "bash" "bash-completion" "nmap" "rsync")
+        packages_to_install=("wget" "curl" "curl-ca-bundle" "vim" "subversion" "git" "bash" "bash-completion" "nmap" "rsync")
+        
+        info "Installing packages from brew: ${packages_to_install[@]}"
+        brew install ${packages_to_install[@]}
     else
-        echo 
+        fail "Unable to locate brew" 
     fi
 }
 
 install_brew
 install_rvm
+install_gnu_commands
