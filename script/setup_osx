@@ -89,6 +89,24 @@ configure_osx_prefs () {
     sudo pmset -a displaysleep 7
     success "setting display off time to 7 min"
     
+    # Require password immediately after sleep or screen saver begins
+    defaults write com.apple.screensaver askForPassword -int 1
+    defaults write com.apple.screensaver askForPasswordDelay -int 0
+    success "require screensaver password immediately"
+    
+    # set screen saver to turn on after 5 min
+    defaults write com.apple.screensaver idleTime 300
+    success "set screen saver to 5 min"
+    
+    # enable the clock on the screen saver
+    defaults write com.apple.screensaver showClock -int 1
+    success "enabling the clock on the screen saver"
+    
+    # set the screen saver to flurry
+    defaults write com.apple.screensaver moduleName Flurry
+    defaults write com.apple.screensaver path -string "/System/Library/Screen Savers/Flurry.saver"
+    success "setting the screen saver to flurry"
+    
     # Expand save panel by default
     defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
     success "expand the save panel by default"
@@ -120,11 +138,6 @@ configure_osx_prefs () {
     # Turn off keyboard illumination when computer is not used for 5 minutes
     defaults write com.apple.BezelServices kDimTime -int 300
     success "turn off keyboard backlight after 5 min"
-    
-    # Require password immediately after sleep or screen saver begins
-    defaults write com.apple.screensaver askForPassword -int 1
-    defaults write com.apple.screensaver askForPasswordDelay -int 0
-    success "require screensaver password immediately"
     
     # Enable subpixel font rendering on non-Apple LCDs
     defaults write NSGlobalDomain AppleFontSmoothing -int 2
