@@ -116,5 +116,10 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# add the ssl cert file env var if it exists
+if [ -f /usr/local/opt/curl-ca-bundle/share/ca-bundle.crt ]; then
+	export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
+fi
+
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 PATH=/usr/local/bin:/usr/local/sbin:$PATH # Add /usr/local/(s)bin before /usr/(s)bin
