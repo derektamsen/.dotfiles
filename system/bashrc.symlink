@@ -125,9 +125,11 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 PATH=/usr/local/bin:/usr/local/sbin:$PATH # Add /usr/local/(s)bin before /usr/(s)bin
 
 # include extra scripts from .bashrc.d
-if [ -d "~/.bashrc.d" ]; then
-	for f in "~/.bashrc.d/*"; do
-        . "${f}"
+if [ -d "${HOME}/.bashrc.d" ]; then
+	for file in ${HOME}/.bashrc.d/*; do
+        if [ -x "${file}" ]; then
+            . "${file}"
+        fi
     done
 fi
 
