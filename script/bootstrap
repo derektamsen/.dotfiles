@@ -48,6 +48,17 @@ setup_gitconfig () {
   fi
 }
 
+setup_bashprofiled () {
+  if ! [ -f ${HOME}/.bash_profile.d ]
+  then
+    info 'setup bash_profile.d'
+
+    mkdir "${HOME}/.bash_profile.d"
+
+    success 'bash_profile.d'
+  fi
+}
+
 setup_sublime2 () {
     info 'setup sublime text 2'
     
@@ -240,6 +251,7 @@ install_mac_prefs () {
 setup_sublime2
 setup_textmate2
 setup_gitconfig
+setup_bashprofiled
 setup_iterm2
 install_dotfiles
 install_desktopfiles
