@@ -168,12 +168,16 @@ configure_osx_prefs () {
     success "finder disable empty trash warning"
     
     # Set the icon size of Dock items to 45 pixels
-    defaults write com.apple.dock tilesize -int 45
-    success "set dock icons to 45 pixels"
+    defaults write com.apple.dock tilesize -int 40
+    success "set dock icons to 40 pixels"
     
     # Automatically hide and show the Dock
-    defaults write com.apple.dock autohide -bool true
-    success "automatically hide and show the dock"
+    defaults write com.apple.dock autohide -bool false
+    success "always show the dock"
+    
+    # Move the dock to the left side of the screen
+    defaults write com.apple.dock orientation left
+    success "move dock to left side"
     
     # Don’t group windows by application in Mission Control
     # (i.e. use the old Exposé behavior instead)
