@@ -118,14 +118,14 @@ setup_iterm2 () {
 
 link_files () {
   ln -s "${1}" "${2}"
-  success "linked ${1} to ${2}"
+  success "linked \"${1}\" to \"${2}\""
 }
 
 overwrite_backup_skip_link () {
   source="${1}"
   dest="${2}"
   
-  if [[ -f ${dest} ]] || [[ -d ${dest} ]]
+  if [[ -f "${dest}" ]] || [[ -d "${dest}" ]]
   then
 
     overwrite=false
@@ -134,7 +134,7 @@ overwrite_backup_skip_link () {
 
     if [ "${overwrite_all}" == "false" ] && [ "${backup_all}" == "false" ] && [ "${skip_all}" == "false" ]
     then
-      user "File already exists: `basename ${source}`, what do you want to do? [s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all?"
+      user "File already exists: `basename \"${source}\"`, what do you want to do? [s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all?"
       read -n 1 action
 
       case "${action}" in
@@ -158,20 +158,20 @@ overwrite_backup_skip_link () {
     if [[ "${overwrite}" == "true" ]] || [[ "${overwrite_all}" == "true" ]]
     then
       rm -rf "${dest}"
-      success "removed ${dest}"
+      success "removed \"${dest}\""
     fi
 
     if [[ "${backup}" == "true" ]] || [[ "${backup_all}" == "true" ]]
     then
       mv "${dest}" "${dest}.backup"
-      success "moved ${dest} to ${dest}.backup"
+      success "moved \"${dest}\" to \"${dest}.backup\""
     fi
 
     if [[ "${skip}" == "false" ]] && [[ "${skip_all}" == "false" ]]
     then
       link_files "${source}" "${dest}"
     else
-      success "skipped ${source}"
+      success "skipped \"${source}\""
     fi
 
   else
@@ -182,7 +182,7 @@ overwrite_backup_skip_link () {
 install_dotfiles () {
   info 'installing dotfiles'
 
-  for source in `find ${DOTFILES_ROOT} -maxdepth 2 -name \*.symlink`
+  for source in `find "${DOTFILES_ROOT}" -maxdepth 2 -name \*.symlink`
   do
     dest="${HOME}/.`basename \"${source%.*}\"`"
 
@@ -198,7 +198,7 @@ install_desktopfiles () {
     then
       info 'installing desktopfiles'
 
-      for source in `find ${DOTFILES_ROOT} -maxdepth 2 -name \*.desktop`
+      for source in `find "${DOTFILES_ROOT}" -maxdepth 2 -name \*.desktop`
       do
         dest="${HOME}/.local/share/applications/`basename \"${source}\"`"
 
@@ -212,7 +212,7 @@ install_desktopfiles () {
 install_gnupg_conf () {
   info 'installing gnupg files'
 
-  for source in `find ${DOTFILES_ROOT} -maxdepth 2 -name \*.gnupg_conf`
+  for source in `find "${DOTFILES_ROOT}" -maxdepth 2 -name \*.gnupg_conf`
   do
     dest="${HOME}/.gnupg/`basename \"${source%.*}.conf\"`"
 
@@ -224,7 +224,7 @@ install_gnupg_conf () {
 install_svn_conf () {
   info 'installing svn files'
 
-  for source in `find ${DOTFILES_ROOT} -maxdepth 2 -name \*.svn_conf`
+  for source in `find "${DOTFILES_ROOT}" -maxdepth 2 -name \*.svn_conf`
   do
     dest="${HOME}/.subversion/`basename \"${source%.*}\"`"
 
@@ -238,7 +238,7 @@ install_mac_prefs () {
 
   if [[ $OSTYPE =~ darwin* ]]
   then
-    for source in `find ${DOTFILES_ROOT} -maxdepth 2 -name \*.mac_pref`
+    for source in `find "${DOTFILES_ROOT}" -maxdepth 2 -name \*.mac_pref`
     do
       dest="${HOME}/Library/Preferences/`basename \"${source%.*}.plist\"`"
 
