@@ -76,6 +76,18 @@ install_ruby_versions () {
     fi
 }
 
+# install pip for python
+install_python_pip () {
+    if [[ `type -P python` ]]; then
+        if ! [[ `type -P pip` ]]; then
+            info "installing python pip"
+            sudo easy_install pip
+        fi
+    else
+        fail "Unable to locate python"
+    fi
+}
+
 configure_osx_prefs () {
     info "configuring mac os x prefs"
     # set the osx prefs the way I like them
@@ -228,6 +240,7 @@ if [[ $OSTYPE =~ darwin* ]]; then
     install_rvm
     install_gnu_commands
     install_ruby_versions
+    install_python_pip
     configure_osx_prefs
 else
     fail "This can only be run on mac os x or darwin"
