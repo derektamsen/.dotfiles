@@ -104,7 +104,7 @@ set_cap_alias () {
 
 set_sg_python_api () {
 	# PATH Variables for shotgun python api development
-	export PYTHONPATH=~/Documents/python_modules/shotgun_api:$PYTHONPATH
+	export PYTHONPATH=~/Documents/python_modules/shotgun_api/shotgun_api3:$PYTHONPATH
 }
 
 additional_bash_envs () {
