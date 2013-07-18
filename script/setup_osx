@@ -88,6 +88,19 @@ install_python_pip () {
     fi
 }
 
+install_python_virtualenv () {
+    if [[ `type -P python` ]]; then
+        if [[ `type -P pip` ]]; then
+            info "installing python virtualenv"
+            sudo pip install virtualenv
+        else
+            fail "Unable to locate pip"
+        fi
+    else
+        fail "Unable to locate python"
+    fi
+}
+
 configure_osx_prefs () {
     info "configuring mac os x prefs"
     # set the osx prefs the way I like them
@@ -241,6 +254,7 @@ if [[ $OSTYPE =~ darwin* ]]; then
     install_gnu_commands
     install_ruby_versions
     install_python_pip
+    install_python_virtualenv
     configure_osx_prefs
 else
     fail "This can only be run on mac os x or darwin"
