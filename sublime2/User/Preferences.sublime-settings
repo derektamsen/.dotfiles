@@ -5,5 +5,18 @@
 	"highlight_line": true,
 	"spell_check": true,
 	"translate_tabs_to_spaces": true,
-	"word_wrap": true
+	"word_wrap": true,
+	"bold_folder_labels": true,
+	"tab_size": 4,
+	"use_tab_stops": true,
+	"detect_indentation": true,
+	"auto_indent": true,
+	"tab_completion": true,
+	"auto_complete": true,
+	"auto_complete_delay": 30,
+	"auto_complete_selector": "source - comment",
+	"auto_complete_commit_on_tab": true,
+	"shift_tab_unindent": false,
+	"find_selected_text": true,
+	"highlight_modified_tabs": true
 }
