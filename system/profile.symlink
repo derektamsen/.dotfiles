@@ -162,7 +162,6 @@ source_bashrc
 set_path
 set_editor
 set_visual_view
-set_cap_alias
 set_sg_python_api
 additional_bash_envs
 set_terminal_appearance
