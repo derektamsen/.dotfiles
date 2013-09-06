@@ -54,15 +54,9 @@ set_editor () {
 	# Setup editor functions for specific oses
 	case "$OSTYPE" in
 		darwin*)
-			if [ -f /usr/local/bin/mate ]; then
-				export EDITOR='mate -wl1'
-				export LESSEDIT='mate -l %lm %f'
-			else
-				if [ -f /usr/local/bin/subl ]; then
-					export EDITOR='subl --new-window --wait'
-					export LESSEDIT="${EDITOR}"
-				fi
-
+			if [ -f /usr/local/bin/subl ]; then
+				export EDITOR='subl --new-window --wait'
+				export LESSEDIT="${EDITOR}"
 			fi
 			;;
 		linux-gnu*)
