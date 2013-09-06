@@ -105,6 +105,8 @@ setup_sublime3 () {
                 dest="${HOME}/Library/Application Support/Sublime Text 3/Packages/`basename \"${source%.*}\"`"
                 overwrite_backup_skip_link "${source}" "${dest}"
             done
+
+	    sudo ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" "/usr/local/bin/subl"
         ;;
         linux*)
             dest="${HOME}/.config/sublime-text-3/Packages/User"
