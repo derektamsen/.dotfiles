@@ -46,6 +46,7 @@ install_brew () {
         info "installing brew"
         ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
         brew doctor
+	brew tap homebrew/dupes
     else
         info "Updating brew"
         brew update
