@@ -27,10 +27,6 @@ set_path() {
 	# set optional paths based on os type
 	case "$OSTYPE" in
 		darwin*)
-			# MacPorts Installer addition on 2011-08-07_at_20:15:31: adding an appropriate PATH variable for use with MacPorts.
-			export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-			# Finished adapting your PATH environment variable for use with MacPorts.
-			
 			# Tab completion
 			if [ -f /opt/local/etc/bash_completion ]; then
 			      . /opt/local/etc/bash_completion
