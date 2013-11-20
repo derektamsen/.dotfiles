@@ -32,3 +32,33 @@ set showmode
 set autoindent
 set smartindent
 set smarttab
+
+" default some search settings
+set showmatch
+set ignorecase
+set smartcase
+set incsearch
+
+" increase history and undo
+set history=1000
+set undolevels=1000
+
+" set the title
+set title
+
+" show hidden characters
+set list
+set listchars=tab:>.,trail:.,extends:#,nbsp:.
+autocmd filetype html,xml set listchars-=tab:>.
+
+" enable clipboard stuff for cut paste
+nmap <F1> :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
+imap <F1> <Esc>:set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
+nmap <F2> :.w !pbcopy<CR><CR>
+vmap <F2> :w !pbcopy<CR><CR>
+
+" enable sudo editing after the fact with w!!
+cmap w!! w !sudo tee % >/dev/null
+
+" always display the status line
+:set laststatus=2
