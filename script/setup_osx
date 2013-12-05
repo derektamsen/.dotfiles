@@ -246,6 +246,10 @@ configure_osx_prefs () {
     defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
     success "enable safari developer menu"
 
+    # Enable selecting text in quick preview
+    defaults write com.apple.finder QLEnableTextSelection -bool true
+    success "select text in qucik preview"
+
     info "You will need to logout for changes to take effect"
 }
 
