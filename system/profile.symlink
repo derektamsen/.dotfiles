@@ -51,7 +51,7 @@ set_editor () {
 	case "$OSTYPE" in
 		darwin*)
 			if [ -f `which mate` ]; then
-				export EDITOR='mate --wait'
+				export EDITOR='subl --new-window --wait'
 				export LESSEDIT="${EDITOR}"
 			fi
 			;;
