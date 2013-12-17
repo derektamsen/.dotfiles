@@ -1,22 +1,26 @@
 {
-	"color_scheme": "Packages/Color Scheme - Default/Solarized (Dark).tmTheme",
-	"show_minimap": false,
-	"draw_white_space": "all",
-	"highlight_line": true,
-	"spell_check": true,
-	"translate_tabs_to_spaces": true,
-	"word_wrap": true,
-	"bold_folder_labels": true,
-	"tab_size": 4,
-	"use_tab_stops": true,
-	"detect_indentation": true,
-	"auto_indent": true,
-	"tab_completion": true,
 	"auto_complete": true,
+	"auto_complete_commit_on_tab": true,
 	"auto_complete_delay": 30,
 	"auto_complete_selector": "source - comment",
-	"auto_complete_commit_on_tab": true,
-	"shift_tab_unindent": false,
+	"auto_indent": true,
+	"bold_folder_labels": true,
+	"color_scheme": "Packages/Color Scheme - Default/Solarized (Dark).tmTheme",
+	"detect_indentation": true,
+	"draw_white_space": "all",
 	"find_selected_text": true,
-	"highlight_modified_tabs": true
+	"highlight_line": true,
+	"highlight_modified_tabs": true,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"shift_tab_unindent": false,
+	"show_minimap": false,
+	"spell_check": true,
+	"tab_completion": true,
+	"tab_size": 4,
+	"translate_tabs_to_spaces": true,
+	"use_tab_stops": true,
+	"word_wrap": true
 }
