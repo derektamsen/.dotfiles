@@ -1,7 +1,9 @@
 # Ignore Mac OS X view settings file
 .DS_Store
 sublime2/User/Package\ Control.sublime-settings
-sublime2/User/Package Control.last-run
+sublime2/User/Package\ Control.last-run
+sublime3/User/Package\ Control.cache
+sublime3/User/Package\ Control.last-run
 git/gitconfig.symlink
 iterm2/com.googlecode.iterm2.mac_pref
 vim/vim/.netrwhist
