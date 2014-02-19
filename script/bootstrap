@@ -287,7 +287,6 @@ install_mac_prefs () {
   fi
 }
 
-setup_sublime2
 setup_sublime3
 setup_textmate2
 setup_gitconfig
