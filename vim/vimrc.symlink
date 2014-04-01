@@ -22,6 +22,9 @@ set hlsearch
 " show current line and column
 set ruler
 
+" show 80 char guide column
+set colorcolumn=80
+
 " show line numbers
 set number
 
