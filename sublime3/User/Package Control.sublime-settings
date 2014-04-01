@@ -1,8 +1,12 @@
 {
 	"installed_packages":
 	[
+		"All Autocomplete",
+		"BracketHighlighter",
+		"Git",
 		"Markdown Preview",
 		"MarkdownEditing",
+		"Pretty JSON",
 		"Theme - Soda"
 	]
 }
