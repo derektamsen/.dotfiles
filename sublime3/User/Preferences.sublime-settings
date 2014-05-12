@@ -15,8 +15,12 @@
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
-		"Markdown",
-		"Vintage"
+		"Vintage",
+		"Markdown"
+	],
+	"rulers":
+	[
+		80
 	],
 	"shift_tab_unindent": false,
 	"show_minimap": false,
@@ -26,6 +30,5 @@
 	"theme": "Soda Light 3.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"use_tab_stops": true,
-	"word_wrap": true,
-	"rulers": [80],
+	"word_wrap": true
 }
