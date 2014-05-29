@@ -1,12 +1,18 @@
 {
 	"installed_packages":
 	[
+		"Alignment",
 		"All Autocomplete",
 		"BracketHighlighter",
+		"Gist",
 		"Git",
+		"GitGutter",
 		"Markdown Preview",
 		"MarkdownEditing",
 		"Pretty JSON",
+		"Restructured Text (RST) Snippets",
+		"RestructuredText Improved",
+		"SideBarEnhancements",
 		"Theme - Soda"
 	]
 }
