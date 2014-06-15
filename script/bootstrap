@@ -263,6 +263,15 @@ install_gnupg_conf () {
 install_svn_conf () {
   info 'installing svn files'
 
+  if ! [ -d "${HOME}/.subversion" ]
+  then
+    info 'creating .subversion dir'
+
+    mkdir "${HOME}/.subversion"
+
+    success 'created .subversion dir'
+  fi
+
   for source in `find "${DOTFILES_ROOT}" -maxdepth 2 -name \*.svn_conf`
   do
     dest="${HOME}/.subversion/`basename \"${source%.*}\"`"
