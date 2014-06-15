@@ -49,7 +49,7 @@ setup_gitconfig () {
 }
 
 setup_bashprofiled () {
-  if ! [ -f "${HOME}/.bashrc.d" ]
+  if ! [ -d "${HOME}/.bashrc.d" ]
   then
     info 'setup bashrc.d'
 
