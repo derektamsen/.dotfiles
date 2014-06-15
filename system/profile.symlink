@@ -73,7 +73,8 @@ set_editor () {
 	# Configure the editor aliases and vars
 	alias edit="${EDITOR}"
 	export SVN_EDITOR="${EDITOR}"
-	export GIT_EDITOR="${EDITOR}"	
+	export GIT_EDITOR="${EDITOR}"
+	alias pedit="${PROJ_EDIT}"
 }
 
 set_visual_view () {
