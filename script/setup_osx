@@ -60,7 +60,7 @@ install_gnu_commands () {
         info "Installing packages from brew: ${packages_to_install[@]}"
         brew install ${packages_to_install[@]}
     else
-        fail "Unable to locate brew" 
+        fail "Unable to locate brew"
     fi
 }
 
