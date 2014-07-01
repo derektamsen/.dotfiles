@@ -46,7 +46,7 @@ install_brew () {
         info "installing brew"
         ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
         brew doctor
-	brew tap homebrew/dupes
+        brew tap homebrew/dupes
     else
         info "Updating brew"
         brew update
@@ -56,7 +56,7 @@ install_brew () {
 install_gnu_commands () {
     if [[ `type -P brew` ]]; then
         packages_to_install=("wget" "curl" "curl-ca-bundle" "vim" "subversion" "git" "bash" "bash-completion" "nmap" "rsync" "mtr" "smartmontools" "iftop" "ssh-copy-id")
-        
+
         info "Installing packages from brew: ${packages_to_install[@]}"
         brew install ${packages_to_install[@]}
     else
@@ -67,7 +67,7 @@ install_gnu_commands () {
 install_ruby_versions () {
     if [[ `type -P rvm` ]]; then
         rubies_to_install=("1.8.7" "1.9.3-p362")
-        
+
         for installing_ruby in "${rubies_to_install[@]}"; do
             info "Installing ${installing_ruby} with rvm"
             rvm install "${installing_ruby}"
@@ -106,114 +106,114 @@ configure_osx_prefs () {
     info "configuring mac os x prefs"
     # set the osx prefs the way I like them
     # using https://github.com/mathiasbynens/dotfiles/blob/master/.osx as a guide
-    
+
     # set sleep time to 30 min
     sudo pmset -a sleep 30
     success "setting sleep time to 30 min"
-    
+
     # turn off the display after 7 min
     sudo pmset -a displaysleep 7
     success "setting display off time to 7 min"
-    
+
     # Require password immediately after sleep or screen saver begins
     defaults write com.apple.screensaver askForPassword -int 1
     defaults write com.apple.screensaver askForPasswordDelay -int 0
     success "require screensaver password immediately"
-    
+
     # set screen saver to turn on after 5 min
     defaults write com.apple.screensaver idleTime 300
     success "set screen saver to 5 min"
-    
+
     # enable the clock on the screen saver
     defaults write com.apple.screensaver showClock -int 1
     success "enabling the clock on the screen saver"
-    
+
     # set the screen saver to flurry
     defaults write com.apple.screensaver moduleName Flurry
     defaults write com.apple.screensaver path -string "/System/Library/Screen Savers/Flurry.saver"
     success "setting the screen saver to flurry"
-    
+
     # Expand save panel by default
     defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
     success "expand the save panel by default"
-    
+
     # Expand print panel by default
     defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
     success "expand the print panel by default"
-    
+
     # Enable full keyboard access for all controls
     # (e.g. enable Tab in modal dialogs)
     defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
     success "allow tab between all items"
-    
+
     # Enable access for assistive devices
     echo -n 'a' | sudo tee /private/var/db/.AccessibilityAPIEnabled > /dev/null 2>&1
     sudo chmod 444 /private/var/db/.AccessibilityAPIEnabled
     success "enable access for assistive devices"
-    
+
     # increase the key repeat speed
     defaults write NSGlobalDomain KeyRepeat -int 2
     success "setting keyboard repeat speed to 2"
-    
+
     # decrease the delay before repeating keys
     defaults write NSGlobalDomain InitialKeyRepeat -int 25
     success "setting keyboard repeat delay to 25"
-    
+
     # Automatically illuminate built-in MacBook keyboard in low light
     defaults write com.apple.BezelServices kDim -bool true
     # Turn off keyboard illumination when computer is not used for 5 minutes
     defaults write com.apple.BezelServices kDimTime -int 300
     success "turn off keyboard backlight after 5 min"
-    
+
     # Enable subpixel font rendering on non-Apple LCDs
     defaults write NSGlobalDomain AppleFontSmoothing -int 2
     success "enable font smoothing on non apple displays"
-    
+
     # Show icons for hard drives, servers, and removable media on the desktop
     defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
     defaults write com.apple.finder ShowHardDrivesOnDesktop -bool true
     defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
     defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
     success "showing desktop icons for HDD, servers, and removable media"
-    
+
     # Finder: show status bar
     defaults write com.apple.finder ShowStatusBar -bool true
     success "finder show status bar"
-    
+
     # Avoid creating .DS_Store files on network volumes
     defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
     success "finder do not create ds_store files on network volumes"
-    
+
     # Use column view in all Finder windows by default
     # Four-letter codes for the other view modes: `icnv`, `Nlsv`, `clmv`, `Flwv`
     defaults write com.apple.finder FXPreferredViewStyle -string "clmv"
     success "finder use column view by default"
-    
+
     # Disable the warning before emptying the Trash
     defaults write com.apple.finder WarnOnEmptyTrash -bool false
     success "finder disable empty trash warning"
-    
+
     # Set the icon size of Dock items to 45 pixels
     defaults write com.apple.dock tilesize -int 40
     success "set dock icons to 40 pixels"
-    
+
     # Automatically hide and show the Dock
     defaults write com.apple.dock autohide -bool false
     success "always show the dock"
-    
+
     # Move the dock to the left side of the screen
     defaults write com.apple.dock orientation left
     success "move dock to left side"
-    
+
     # Don’t group windows by application in Mission Control
     # (i.e. use the old Exposé behavior instead)
     defaults write com.apple.dock expose-group-by-app -bool false
     success "disable application grouping in mission control"
-    
+
     # Don’t show Dashboard as a Space
     defaults write com.apple.dock dashboard-in-overlay -bool true
     success "show dashboard as an overlay"
-    
+
     # Hot corners
     # Possible values:
     #  0: no-op
@@ -235,11 +235,11 @@ configure_osx_prefs () {
     # Bottom left screen corner → Start screen saver
     defaults write com.apple.dock wvous-bl-corner -int 5
     defaults write com.apple.dock wvous-bl-modifier -int 0
-    
+
     # Prevent Safari from opening ‘safe’ files automatically after downloading
     defaults write com.apple.Safari AutoOpenSafeDownloads -bool false
     success "disable safari opening safe files"
-    
+
     # Enable the Develop menu and the Web Inspector in Safari
     defaults write com.apple.Safari IncludeDevelopMenu -bool true
     defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
