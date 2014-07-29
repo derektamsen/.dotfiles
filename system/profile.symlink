@@ -10,145 +10,145 @@
 
 
 source_bashrc () {
-	# include .bashrc if it exists
-	if [ -n "$BASH_VERSION" ]; then
-		if [ -f "$HOME/.bashrc" ]; then
-			. "$HOME/.bashrc"
-		fi
-	fi
+  # include .bashrc if it exists
+  if [ -n "$BASH_VERSION" ]; then
+    if [ -f "$HOME/.bashrc" ]; then
+      . "$HOME/.bashrc"
+    fi
+  fi
 }
 
 set_path() {
-	# set PATH so it includes user's private bin if it exists
-	if [ -d "$HOME/bin" ] ; then
-		PATH="$HOME/bin:$PATH"
-	fi
+  # set PATH so it includes user's private bin if it exists
+  if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+  fi
 
-	# set optional paths based on os type
-	case "$OSTYPE" in
-		darwin*)
-			# Tab completion
-			if [ -f /opt/local/etc/bash_completion ]; then
-			      . /opt/local/etc/bash_completion
-			fi
-			
-			if [ `type -P brew` ]; then 
-				if [ -f $(brew --prefix)/etc/bash_completion ]; then
-					. $(brew --prefix)/etc/bash_completion
-				fi
-			fi
-			
-			# git prompt
-			if [ -f /opt/local/share/git-core/git-prompt.sh ]; then
-			    . /opt/local/share/git-core/git-prompt.sh
-			fi
-			;;
-	esac
+  # set optional paths based on os type
+  case "$OSTYPE" in
+    darwin*)
+      # Tab completion
+      if [ -f /opt/local/etc/bash_completion ]; then
+        . /opt/local/etc/bash_completion
+      fi
+
+      if [ `type -P brew` ]; then
+        if [ -f $(brew --prefix)/etc/bash_completion ]; then
+          . $(brew --prefix)/etc/bash_completion
+        fi
+      fi
+
+      # git prompt
+      if [ -f /opt/local/share/git-core/git-prompt.sh ]; then
+        . /opt/local/share/git-core/git-prompt.sh
+      fi
+      ;;
+  esac
 }
 
 set_editor () {
-	# Setup editor functions for specific oses
-	case "$OSTYPE" in
-		darwin*)
-			if [ -f `which subl` ]; then
-				export EDITOR='subl --new-window --wait'
-				export LESSEDIT="${EDITOR}"
-				export PROJ_EDIT='subl --new-window .'
-			fi
-			;;
-		linux-gnu*)
-			if [ -f `which subl` ]; then
-				export EDITOR='subl --new-window --wait'
-				export LESSEDIT="${EDITOR}"
-				export PROJ_EDIT='subl --new-window .'
-			fi
-		;;
-		*)
-			export EDITOR='vi'
-			export LESSEDIT="${EDITOR}"
-			export PROJ_EDIT=""
-			;;
-	esac
+  # Setup editor functions for specific oses
+  case "$OSTYPE" in
+    darwin*)
+      if [ -f `which subl` ]; then
+        export EDITOR='subl --new-window --wait'
+        export LESSEDIT="${EDITOR}"
+        export PROJ_EDIT='subl --new-window .'
+      fi
+      ;;
+    linux-gnu*)
+      if [ -f `which subl` ]; then
+        export EDITOR='subl --new-window --wait'
+        export LESSEDIT="${EDITOR}"
+        export PROJ_EDIT='subl --new-window .'
+      fi
+    ;;
+    *)
+      export EDITOR='vi'
+      export LESSEDIT="${EDITOR}"
+      export PROJ_EDIT=""
+      ;;
+  esac
 
-	# Configure the editor aliases and vars
-	alias edit="${EDITOR}"
-	export SVN_EDITOR="${EDITOR}"
-	export GIT_EDITOR="${EDITOR}"
-	alias pedit="${PROJ_EDIT}"
+  # Configure the editor aliases and vars
+  alias edit="${EDITOR}"
+  export SVN_EDITOR="${EDITOR}"
+  export GIT_EDITOR="${EDITOR}"
+  alias pedit="${PROJ_EDIT}"
 }
 
 set_visual_view () {
-	case "${OSTYPE}" in
-		darwin*)
-			# Define an alias to open man pages in a visual app
-			pman () {
-				man -t ${@} | open -f -a /Applications/Preview.app/
-			}
-			;;
-	esac
+  case "${OSTYPE}" in
+    darwin*)
+      # Define an alias to open man pages in a visual app
+      pman () {
+        man -t ${@} | open -f -a /Applications/Preview.app/
+      }
+      ;;
+  esac
 }
 
 set_cap_alias () {
-	# cap aliases
-	if [[ `type -P cap` ]]; then
-		alias cap="`which cap` _1.4.2_"
-		alias cap2="`which cap` _2.11.2_"
-	fi
+  # cap aliases
+  if [[ `type -P cap` ]]; then
+    alias cap="`which cap` _1.4.2_"
+    alias cap2="`which cap` _2.11.2_"
+  fi
 }
 
 set_sg_python_api () {
-	# PATH Variables for shotgun python api development
-	export PYTHONPATH=~/Documents/python_modules/shotgun_api/:$PYTHONPATH
+  # PATH Variables for shotgun python api development
+  export PYTHONPATH=~/Documents/python_modules/shotgun_api/:$PYTHONPATH
 }
 
 additional_bash_envs () {
-	# Shotgun environment variables
-	if [[ -f ~/.bash_sg_env ]]; then
-		source ~/.bash_sg_env
-	fi
+  # Shotgun environment variables
+  if [[ -f ~/.bash_sg_env ]]; then
+    source ~/.bash_sg_env
+  fi
 
-	# AWS environment variables
-	if [[ -f ~/.bash_aws_env ]]; then
-		source ~/.bash_aws_env
-	fi
+  # AWS environment variables
+  if [[ -f ~/.bash_aws_env ]]; then
+    source ~/.bash_aws_env
+  fi
 }
 
 set_terminal_appearance () {
-	#export PS1='[\t \u@\h: \W]\$ '
+  #export PS1='[\t \u@\h: \W]\$ '
 
-	#export TITLEBAR=""
-	#export PS1="\\n<<< \t \h [$HII\w$NM] >>>\\n[$NM$SI\u]$ $NM"
+  #export TITLEBAR=""
+  #export PS1="\\n<<< \t \h [$HII\w$NM] >>>\\n[$NM$SI\u]$ $NM"
 
-	# Terminal sets TERM_PROGRAM so we can tell it apart from regular VT100
-	case "$TERM_PROGRAM" in
-		"Apple_Terminal")PS1="$TITLEBAR$PS1"
-	esac
-	case "$TERM" in
-		dtterm*)
-		#		printf "\033]0;$HOSTNAME :\W\$\007"
-			printf "\033]0;$HOSTNAME\007"
-			PS1=$PS1
-			;;
-		xterm*)
-			#Hack to change the xterm title to the current working dir
-			PS1="\[\033]0;$HOSTNAME :\W\$ \007\]$PS1"
-			;;
-		*)
-			PS1=$PS1
-		;;
-	esac
+  # Terminal sets TERM_PROGRAM so we can tell it apart from regular VT100
+  case "$TERM_PROGRAM" in
+    "Apple_Terminal")PS1="$TITLEBAR$PS1"
+  esac
+  case "$TERM" in
+    dtterm*)
+    # printf "\033]0;$HOSTNAME :\W\$\007"
+      printf "\033]0;$HOSTNAME\007"
+      PS1=$PS1
+      ;;
+    xterm*)
+      #Hack to change the xterm title to the current working dir
+      PS1="\[\033]0;$HOSTNAME :\W\$ \007\]$PS1"
+      ;;
+    *)
+      PS1=$PS1
+    ;;
+  esac
 
-	# Enable terminal colors
-	export CLICOLOR=1
+  # Enable terminal colors
+  export CLICOLOR=1
 
-	# Color grep output
-	export GREP_COLOR='1;37;41'
-	alias grep='grep --color=auto'
+  # Color grep output
+  export GREP_COLOR='1;37;41'
+  alias grep='grep --color=auto'
 }
 
 source_rvm () {
-	# Load RVM into a shell session *as a function*
-	[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+  # Load RVM into a shell session *as a function*
+  [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 }
 
 #### Run all the functions ####
