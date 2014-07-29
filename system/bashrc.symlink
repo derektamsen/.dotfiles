@@ -140,8 +140,3 @@ if [ -d "${HOME}/.bashrc.d" ]; then
     done
 fi
 
-# display archey if it is installed
-if [[ -x `which archey` ]]; then
-    `which archey` &
-fi
-
