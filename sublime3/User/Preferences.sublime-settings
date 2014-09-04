@@ -15,9 +15,12 @@
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
+		"Restructured Text (RST) Snippets",
 		"Vintage",
-		"Markdown",
-		"RestructuredText"
+		"RestructuredText",
+		"Markdown"
+		"Markdown Preview",
+		"SideBarEnhancements",
 	],
 	"rulers":
 	[
