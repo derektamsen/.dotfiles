@@ -16,8 +16,8 @@
 	"ignored_packages":
 	[
 		"Vintage",
-		"RestructuredText",
-		"Markdown"
+		"Markdown",
+		"RestructuredText"
 	],
 	"rulers":
 	[
