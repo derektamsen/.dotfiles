@@ -53,7 +53,7 @@ set_editor () {
       if [ -f `which mate` ]; then
         export EDITOR='mate -w'
         export LESSEDIT="${EDITOR}"
-        export PROJ_EDIT='mate -w .'
+        export PROJ_EDIT='mate .'
       fi
       ;;
     linux-gnu*)
