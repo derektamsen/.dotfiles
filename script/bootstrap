@@ -61,14 +61,14 @@ setup_bashprofiled () {
 
 setup_sublime2 () {
     info 'setup sublime text 2'
-    
+
     case $OSTYPE in
         darwin*)
             dest="${HOME}/Library/Application Support/Sublime Text 2/Packages/User"
-            
+
             source="${DOTFILES_ROOT}/sublime2/User"
             overwrite_backup_skip_link "${source}" "${dest}"
-            
+
             for source in `find "${DOTFILES_ROOT}/sublime2" -maxdepth 2 -name \*.tmTheme -o -maxdepth 2 -name \*.tmbundle`
             do
                 dest="${HOME}/Library/Application Support/Sublime Text 2/Packages/`basename \"${source%.*}\"`"
@@ -77,10 +77,10 @@ setup_sublime2 () {
         ;;
         linux*)
             dest="${HOME}/.config/sublime-text-2/Packages/User"
-            
+
             source="${DOTFILES_ROOT}/sublime2/User"
             overwrite_backup_skip_link "${source}" "${dest}"
-            
+
             for source in `find "${DOTFILES_ROOT}/sublime2" -maxdepth 2 -name \*.tmTheme -o -maxdepth 2 -name \*.tmbundle`
             do
                 dest="${HOME}/.config/sublime-text-2/Packages/`basename \"${source%.*}\"`"
@@ -92,14 +92,14 @@ setup_sublime2 () {
 
 setup_sublime3 () {
     info 'setup sublime text 3'
-    
+
     case $OSTYPE in
         darwin*)
             dest="${HOME}/Library/Application Support/Sublime Text 3/Packages/User"
-            
+
             source="${DOTFILES_ROOT}/sublime3/User"
             overwrite_backup_skip_link "${source}" "${dest}"
-            
+
             for source in `find "${DOTFILES_ROOT}/sublime3" -maxdepth 2 -name \*.tmTheme -o -maxdepth 2 -name \*.tmbundle`
             do
                 dest="${HOME}/Library/Application Support/Sublime Text 3/Packages/`basename \"${source%.*}\"`"
@@ -112,14 +112,14 @@ setup_sublime3 () {
                 overwrite_backup_skip_link "${source}" "${dest}"
             done
 
-	    sudo ln -sf "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" "/usr/local/bin/subl"
+            sudo ln -sf "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" "/usr/local/bin/subl"
         ;;
         linux*)
             dest="${HOME}/.config/sublime-text-3/Packages/User"
-            
+
             source="${DOTFILES_ROOT}/sublime3/User"
             overwrite_backup_skip_link "${source}" "${dest}"
-            
+
             for source in `find "${DOTFILES_ROOT}/sublime3" -maxdepth 2 -name \*.tmTheme -o -maxdepth 2 -name \*.tmbundle`
             do
                 dest="${HOME}/.config/sublime-text-3/Packages/`basename \"${source%.*}\"`"
@@ -134,7 +134,7 @@ setup_textmate2 () {
 
     case $OSTYPE in
         darwin*)
-	    for source in `find "${DOTFILES_ROOT}/textmate2" -maxdepth 2 -name \*.tmbundle`
+            for source in `find "${DOTFILES_ROOT}/textmate2" -maxdepth 2 -name \*.tmbundle`
             do
                 dest="${HOME}/Library/Application Support/TextMate/Managed/Bundles/`basename \"${source}\"`"
                 overwrite_backup_skip_link "${source}" "${dest}"
@@ -163,7 +163,7 @@ link_files () {
 overwrite_backup_skip_link () {
   source="${1}"
   dest="${2}"
-  
+
   if [[ -f "${dest}" ]] || [[ -d "${dest}" ]]
   then
 
