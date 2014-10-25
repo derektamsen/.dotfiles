@@ -17,7 +17,15 @@
 	[
 		"Vintage",
 		"Markdown",
-		"RestructuredText"
+		"RestructuredText",
+		"BracketHighlighter",
+		"Gist",
+		"Git",
+		"Markdown Preview",
+		"Pretty JSON",
+		"Restructured Text (RST) Snippets",
+		"RestructuredText Improved",
+		"SideBarEnhancements"
 	],
 	"rulers":
 	[
