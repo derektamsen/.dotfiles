@@ -55,7 +55,7 @@ install_brew () {
 
 install_gnu_commands () {
     if [[ `type -P brew` ]]; then
-        packages_to_install=("wget" "curl" "curl-ca-bundle" "vim" "subversion" "git" "bash" "bash-completion" "nmap" "rsync" "mtr" "smartmontools" "iftop" "ssh-copy-id" "ipcalc" "tmux" "tcping" "arping")
+        packages_to_install=("wget" "curl" "curl-ca-bundle" "vim" "subversion" "git" "bash" "bash-completion" "nmap" "rsync" "mtr" "smartmontools" "iftop" "ssh-copy-id" "ipcalc" "tmux" "tcping" "arping" "watch")
 
         info "Installing packages from brew: ${packages_to_install[@]}"
         brew install ${packages_to_install[@]}
