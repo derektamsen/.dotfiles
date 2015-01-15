@@ -48,9 +48,11 @@ install_brew () {
         brew doctor
         brew tap homebrew/dupes
         brew install caskroom/cask/brew-cask
+        brew-cask doctor
     else
         info "Updating brew"
         brew update
+        brew-cask update
     fi
 }
 
