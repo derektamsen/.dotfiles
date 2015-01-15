@@ -67,6 +67,17 @@ install_gnu_commands () {
     fi
 }
 
+install_mac_apps () {
+    if [[ `type -P brew-cask` ]]; then
+        apps_to_install=()
+
+        info "Installing applications from brew-cask: ${packages_to_install[@]}"
+        brew-cask install ${packages_to_install[@]}
+    else
+        fail "Unable to locate brew-cask"
+    fi
+}
+
 install_ruby_versions () {
     if [[ `type -P rvm` ]]; then
         rubies_to_install=("2.0.0" "2.1")
@@ -264,6 +275,7 @@ if [[ $OSTYPE =~ darwin* ]]; then
     install_python_pip
     install_python_virtualenv
     configure_osx_prefs
+    # install_mac_apps
 else
     fail "This can only be run on mac os x or darwin"
 fi
