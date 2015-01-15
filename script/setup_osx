@@ -67,7 +67,7 @@ install_gnu_commands () {
 
 install_ruby_versions () {
     if [[ `type -P rvm` ]]; then
-        rubies_to_install=("1.8.7" "1.9.3-p362")
+        rubies_to_install=("2.0.0" "2.1")
 
         for installing_ruby in "${rubies_to_install[@]}"; do
             info "Installing ${installing_ruby} with rvm"
