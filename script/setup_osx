@@ -275,7 +275,7 @@ if [[ $OSTYPE =~ darwin* ]]; then
     install_python_pip
     install_python_virtualenv
     configure_osx_prefs
-    # install_mac_apps
+    install_mac_apps
 else
     fail "This can only be run on mac os x or darwin"
 fi
