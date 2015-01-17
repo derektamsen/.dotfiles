@@ -69,7 +69,7 @@ install_gnu_commands () {
 
 install_mac_apps () {
     if [[ `type -P brew-cask` ]]; then
-        apps_to_install=()
+        apps_to_install=("virtualbox" "google-chrome" "transmission" "wireshark" "dropbox" "gpgtools" "iterm2" "textmate" "evernote" "bittorrent-sync" "flux" "limechat" "the-unarchiver" "vlc" "vagrant" "libreoffice" "xquartz" "flash-player")
 
         info "Installing applications from brew-cask: ${packages_to_install[@]}"
         brew-cask install ${packages_to_install[@]}
