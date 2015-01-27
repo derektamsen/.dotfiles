@@ -1,4 +1,12 @@
 {
+	"in_process_packages":
+	[
+	],
+	"installed_dependencies":
+	[
+		"0_package_control_loader",
+		"bz2"
+	],
 	"installed_packages":
 	[
 		"Alignment",
@@ -9,6 +17,7 @@
 		"GitGutter",
 		"Markdown Preview",
 		"MarkdownEditing",
+		"Package Control",
 		"Pretty JSON",
 		"Restructured Text (RST) Snippets",
 		"RestructuredText Improved",
