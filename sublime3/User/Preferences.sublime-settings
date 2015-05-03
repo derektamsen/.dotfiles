@@ -15,17 +15,17 @@
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
-		"RestructuredText Improved",
-		"Restructured Text (RST) Snippets",
-		"Gist",
-		"RestructuredText",
-		"Vintage",
 		"BracketHighlighter",
+		"Gist",
 		"Git",
-		"Pretty JSON",
+		"Markdown",
 		"Markdown Preview",
+		"Pretty JSON",
+		"Restructured Text (RST) Snippets",
+		"RestructuredText",
+		"RestructuredText Improved",
 		"SideBarEnhancements",
-		"Markdown"
+		"Vintage"
 	],
 	"rulers":
 	[
