@@ -5,14 +5,14 @@ Name=Sublime Text 2
 # From Ubuntu's language-pack-kde-XX-base packages, version 9.04-20090413.
 GenericName=Text Editor
 
-Exec=/usr/local/bin/sublime %f
+Exec=/opt/sublime_text/sublime_text %f
 Terminal=false
-Icon=/opt/sublimetext/Icon/48x48/sublime_text.png
+Icon=/opt/sublime_text/Icon/48x48/sublime-text.png
 Type=Application
 Categories=TextEditor;IDE;Development
 X-Ayatana-Desktop-Shortcuts=NewWindow
 
 [NewWindow Shortcut Group]
 Name=New Window
-Exec=/usr/local/bin/sublime -n
-TargetEnvironment=Unity
+Exec=/opt/sublime_text/sublime_text -n
+#TargetEnvironment=Unity
