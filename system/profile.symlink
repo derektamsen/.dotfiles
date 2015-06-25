@@ -51,16 +51,16 @@ set_editor () {
   case "$OSTYPE" in
     darwin*)
       if [ -f `which mate` ]; then
-        export EDITOR='mate -w'
+        export EDITOR='atom --new-window --wait'
         export LESSEDIT="${EDITOR}"
-        export PROJ_EDIT='mate .'
+        export PROJ_EDIT='atom --new-window .'
       fi
       ;;
     linux-gnu*)
       if [ -f `which subl` ]; then
-        export EDITOR='subl --new-window --wait'
+        export EDITOR='atom --new-window --wait'
         export LESSEDIT="${EDITOR}"
-        export PROJ_EDIT='subl --new-window .'
+        export PROJ_EDIT='atom --new-window .'
       fi
     ;;
     *)
