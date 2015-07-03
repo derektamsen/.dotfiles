@@ -25,3 +25,5 @@
   "linter-puppet-parse": {}
   "git-plus": {}
   "linter-htmlhint": {}
+  "linter-csslint": {}
+  "linter-erb": {}
