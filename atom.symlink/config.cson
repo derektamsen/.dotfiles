@@ -24,3 +24,4 @@
     puppetLintExecutablePath: "/Users/tamsen/.rvm/gems/ruby-2.1.5@it-puppet/bin/puppet-lint"
   "linter-puppet-parse": {}
   "git-plus": {}
+  "linter-htmlhint": {}
