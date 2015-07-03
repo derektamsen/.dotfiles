@@ -1,0 +1,25 @@
+"*":
+  welcome:
+    showOnStartup: false
+  "one-dark-ui": {}
+  core:
+    audioBeep: false
+    disabledPackages: [
+      "metrics"
+      "exception-reporting"
+    ]
+  editor:
+    invisibles: {}
+    showIndentGuide: true
+    showInvisibles: true
+  "vim-mode":
+    startInInsertMode: true
+  "linter-js-yaml": {}
+  linter:
+    subtleLinterErrors: [
+      "puppet-lint"
+      "puppet-parse"
+    ]
+  "linter-puppet-lint":
+    puppetLintExecutablePath: "/Users/tamsen/.rvm/gems/ruby-2.1.5@it-puppet/bin/puppet-lint"
+  "linter-puppet-parse": {}
