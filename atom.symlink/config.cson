@@ -8,10 +8,6 @@
       "metrics"
       "exception-reporting"
     ]
-    themes: [
-      "one-dark-ui"
-      "solarized-dark-syntax"
-    ]
   editor:
     invisibles: {}
     showIndentGuide: true
