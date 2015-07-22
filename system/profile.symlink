@@ -141,10 +141,6 @@ set_terminal_appearance () {
   alias grep='grep --color=auto'
 }
 
-source_rvm () {
-  # Load RVM into a shell session *as a function*
-  [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-}
 
 #### Run all the functions ####
 source_bashrc
@@ -153,5 +149,4 @@ set_editor
 set_visual_view
 additional_bash_envs
 set_terminal_appearance
-source_rvm
 ########
