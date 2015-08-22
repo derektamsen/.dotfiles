@@ -96,11 +96,6 @@ set_cap_alias () {
   fi
 }
 
-set_sg_python_api () {
-  # PATH Variables for shotgun python api development
-  export PYTHONPATH=~/Documents/python_modules/shotgun_api/:$PYTHONPATH
-}
-
 additional_bash_envs () {
   # Shotgun environment variables
   if [[ -f ~/.bash_sg_env ]]; then
@@ -146,18 +141,12 @@ set_terminal_appearance () {
   alias grep='grep --color=auto'
 }
 
-source_rvm () {
-  # Load RVM into a shell session *as a function*
-  [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-}
 
 #### Run all the functions ####
 source_bashrc
 set_path
 set_editor
 set_visual_view
-set_sg_python_api
 additional_bash_envs
 set_terminal_appearance
-source_rvm
 ########
