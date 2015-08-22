@@ -27,3 +27,4 @@
   "linter-htmlhint": {}
   "linter-csslint": {}
   "linter-erb": {}
+  term2: {}
