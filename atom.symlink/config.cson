@@ -28,4 +28,5 @@
   "linter-csslint": {}
   "linter-erb": {}
   "ruby-test": {}
+  "aligner-ruby": {}
   term2: {}
