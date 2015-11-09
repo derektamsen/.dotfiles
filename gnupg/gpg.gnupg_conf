@@ -1,7 +1,7 @@
 use-agent
+default-preference-list SHA512 SHA384 SHA256 SHA224 AES256 AES192 AES CAMELLIA256 CAMELLIA192 CAMELLIA128 TWOFISH
+cert-digest-algo SHA512
 keyserver keyserver.ubuntu.com
 default-key 2A89988294A40F84AD27DED26B52F71A43C9227A
 encrypt-to 2A89988294A40F84AD27DED26B52F71A43C9227A
-#comment
 no-emit-version
-comment GPGTools - http://gpgtools.org
