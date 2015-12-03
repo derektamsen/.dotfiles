@@ -21,8 +21,8 @@
       "puppet-parse"
     ]
   "linter-puppet-lint":
-    executablePath: "/Users/tamsen/.rvm/gems/ruby-2.1.5@it-puppet/bin/puppet-lint"
-    puppetLintExecutablePath: "/Users/tamsen/.rvm/gems/ruby-2.1.5@it-puppet/bin/puppet-lint"
+    executablePath: "/Users/tamsen/.rvm/gems/ruby-2.1.7@it-puppet/bin/puppet-lint"
+    puppetLintExecutablePath: "/Users/tamsen/.rvm/gems/ruby-2.1.7@it-puppet/bin/puppet-lint"
     oldVersion: false
   "linter-puppet-parse": {}
   "git-plus": {}
