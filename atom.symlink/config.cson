@@ -33,3 +33,5 @@
   "aligner-ruby": {}
   term2: {}
   "spell-check": {}
+  "tree-view":
+    hideVcsIgnoredFiles: true
