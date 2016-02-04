@@ -30,13 +30,14 @@ install_rvm () {
     if ! [[ `type -P rvm` ]]; then
         if [[ `type -P brew` ]]; then
             info "installing rvm"
-            sh -c '\curl -L https://get.rvm.io | bash -s stable'
+            sh -c '\curl -L https://get.rvm.io | bash -s head'
             rvm requirements
         else
             fail "Unable to locate brew"
         fi
     else
-        info "rvm already installed"
+        info "updating rvm"
+        rvm get head
     fi
 }
 
@@ -47,12 +48,9 @@ install_brew () {
         ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
         brew doctor
         brew tap homebrew/dupes
-        brew install caskroom/cask/brew-cask
-        brew-cask doctor
     else
         info "Updating brew"
         brew update
-        brew-cask update
     fi
 }
 
@@ -68,19 +66,19 @@ install_gnu_commands () {
 }
 
 install_mac_apps () {
-    if [[ `type -P brew-cask` ]]; then
-        apps_to_install=("virtualbox" "google-chrome" "transmission" "wireshark" "dropbox" "gpgtools" "iterm2" "textmate" "evernote" "bittorrent-sync" "flux" "limechat" "the-unarchiver" "vlc" "vagrant" "libreoffice" "xquartz" "flash-player")
+    if [[ `type -P brew` ]]; then
+        apps_to_install=("android-file-transfer" "atom" "dropbox" "evernote" "firefox" "flux" "gimp" "google-chrome" "google-drive" "gpgtools" "handbrake" "iterm2" "kitematic" "limechat" "openemu" "qtpass" "spectacle" "sqlitebrowser" "the-unarchiver" "torbrowser" "transmission" "tunnelblick" "virtualbox" "vlc" "xquartz" "yubico-authenticator" "yubikey-neo-manager" "yubikey-personalization-gui")
 
-        info "Installing applications from brew-cask: ${packages_to_install[@]}"
-        brew-cask install ${packages_to_install[@]}
+        info "Installing applications from brew cask: ${packages_to_install[@]}"
+        brew cask install ${packages_to_install[@]}
     else
-        fail "Unable to locate brew-cask"
+        fail "Unable to locate brew"
     fi
 }
 
 install_ruby_versions () {
     if [[ `type -P rvm` ]]; then
-        rubies_to_install=("2.0.0" "2.1")
+        rubies_to_install=("2.1")
 
         for installing_ruby in "${rubies_to_install[@]}"; do
             info "Installing ${installing_ruby} with rvm"
