@@ -1,7 +1,5 @@
 "*":
-  welcome:
-    showOnStartup: false
-  "one-dark-ui": {}
+  "aligner-ruby": {}
   core:
     audioBeep: false
     disabledPackages: [
@@ -12,26 +10,32 @@
     invisibles: {}
     showIndentGuide: true
     showInvisibles: true
-  "vim-mode":
-    startInInsertMode: true
-  "linter-js-yaml": {}
+  "git-plus": {}
   linter:
     subtleLinterErrors: [
       "puppet-lint"
       "puppet-parse"
     ]
-  "linter-puppet-lint":
-    executablePath: "/Users/tamsen/.rvm/gems/ruby-2.1.7@it-puppet/bin/puppet-lint"
-    puppetLintExecutablePath: "/Users/tamsen/.rvm/gems/ruby-2.1.7@it-puppet/bin/puppet-lint"
-    oldVersion: false
-  "linter-puppet-parse": {}
-  "git-plus": {}
-  "linter-htmlhint": {}
   "linter-csslint": {}
   "linter-erb": {}
+  "linter-htmlhint": {}
+  "linter-js-yaml": {}
+  "linter-puppet-lint":
+    executablePath: "/Users/tamsen/.rvm/gems/ruby-2.1.7@it-puppet/bin/puppet-lint"
+    oldVersion: false
+    puppetLintExecutablePath: "/Users/tamsen/.rvm/gems/ruby-2.1.7@it-puppet/bin/puppet-lint"
+  "linter-puppet-parse": {}
+  "one-dark-ui": {}
   "ruby-test": {}
-  "aligner-ruby": {}
-  term2: {}
   "spell-check": {}
   "tree-view":
     hideVcsIgnoredFiles: true
+  term2: {}
+  "terminal-plus":
+    core: {}
+    style: {}
+  "vim-mode":
+    startInInsertMode: true
+  welcome:
+    showOnStartup: false
+
