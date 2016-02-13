@@ -165,7 +165,7 @@ if [ -x /usr/local/bin/brew ]; then
 fi
 
 # Set the go path
-if [ -x /usr/local/bin/go ]; then
+if [ -x $(which go) ]; then
   export GOPATH=$HOME/Development/go
 fi
 
