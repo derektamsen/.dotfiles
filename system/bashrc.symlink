@@ -164,6 +164,11 @@ if [ -x /usr/local/bin/brew ]; then
   export HOMEBREW_CASK_OPTS='--appdir=/Applications'
 fi
 
+# Set the go path
+if [ -x /usr/local/bin/go ]; then
+  export GOPATH=$HOME/Development/go
+fi
+
 #### Run all the functions ####
 
 ####
