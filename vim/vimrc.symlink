@@ -70,8 +70,9 @@ vmap <F2> :w !pbcopy<CR><CR>
 " enable sudo editing after the fact with w!!
 cmap w!! w !sudo tee % >/dev/null
 
-" always display the status line
-:set laststatus=2
+set laststatus=2 " Always display the statusline in all windows
+set showtabline=2 " Always display the tabline, even if there is only one tab
+set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 
 " set netrw explorer mode
 let g:netrw_liststyle=3

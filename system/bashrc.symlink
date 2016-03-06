@@ -27,6 +27,9 @@ shopt -s checkwinsize
 # match all files and zero or more directories and subdirectories.
 #shopt -s globstar
 
+# set shell window title
+PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
+
 # enable the powerline shell
 if [[ -f "/usr/local/lib/python3.4/dist-packages/powerline/bindings/bash/powerline.sh" && -x "$(which powerline-daemon)" ]]; then
   powerline-daemon -q
