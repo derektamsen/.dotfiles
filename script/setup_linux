@@ -34,7 +34,7 @@ determine_os_type () {
 
 install_pkgs () {
   if [[ `type -P apt-get` ]]; then
-    packages_to_install=("wget" "tmux" "curl" "vim" "git" "nmap" "rsync" "mtr-tiny" "iftop" "ipcalc" "tmux" "htop" "ruby" "python3" "python3-setuptools" "gcc" "make" "build-essential" "linux-headers-`uname -r`" "socat" "python3-psutil" "python3-pip" "python3-pygit2")
+    packages_to_install=("wget" "tmux" "fonts-inconsolata" "curl" "vim" "git" "nmap" "rsync" "mtr-tiny" "iftop" "ipcalc" "tmux" "htop" "ruby" "python3" "python3-setuptools" "gcc" "make" "build-essential" "linux-headers-`uname -r`" "socat" "python3-psutil" "python3-pip" "python3-pygit2")
 
     info "Installing packages from apt: ${packages_to_install[@]}"
     sudo apt-get install ${packages_to_install[@]} -y

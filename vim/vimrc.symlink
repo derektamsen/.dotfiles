@@ -11,6 +11,9 @@ syntax enable
 " enable solorized colors
 if has('gui_running')
     set background=light
+    if has("gui_gtk2")
+      set guifont=Inconsolata\ 12
+    endif
 else
     set background=dark
 endif
