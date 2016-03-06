@@ -1,8 +1,8 @@
 *customization: -color
-XTerm*termName: xterm-256color
-XTerm*locale: true
-XTerm*utf8: 1
-XTerm*metaSendsEscape: true
+xterm*termName: xterm-256color
+xterm*locale: true
+xterm*utf8: 1
+xterm*metaSendsEscape: true
 
 #define S_base03        rgb:00/2b/36
 #define S_base02        rgb:07/36/42
@@ -13,12 +13,12 @@ XTerm*metaSendsEscape: true
 #define S_base2         rgb:ee/e8/d5
 #define S_base3         rgb:fd/f6/e3
 
-*background:             S_base03
-*foreground:             S_base0
-*fadeColor:              S_base03
-*cursorColor:            S_base1
-*pointerColorBackground: S_base01
-*pointerColorForeground: S_base1
+xterm*background:             S_base03
+xterm*foreground:             S_base0
+xterm*fadeColor:              S_base03
+xterm*cursorColor:            S_base1
+xterm*pointerColorBackground: S_base01
+xterm*pointerColorForeground: S_base1
 
 #define S_yellow        rgb:b5/89/00
 #define S_orange        rgb:cb/4b/16
@@ -30,50 +30,50 @@ XTerm*metaSendsEscape: true
 #define S_green         rgb:85/99/00
 
 !! black dark/light
-XTerm*color0:                S_base02
-XTerm*color8:                S_base03
+xterm*color0:                S_base02
+xterm*color8:                S_base03
 
 !! red dark/light
-XTerm*color1:                S_red
-XTerm*color9:                S_orange
+xterm*color1:                S_red
+xterm*color9:                S_orange
 
 !! green dark/light
-XTerm*color2:                S_green
-XTerm*color10:               S_base01
+xterm*color2:                S_green
+xterm*color10:               S_base01
 
 !! yellow dark/light
-XTerm*color3:                S_yellow
-XTerm*color11:               S_base00
+xterm*color3:                S_yellow
+xterm*color11:               S_base00
 
 !! blue dark/light
-XTerm*color4:                S_blue
-XTerm*color12:               S_base0
+xterm*color4:                S_blue
+xterm*color12:               S_base0
 
 !! magenta dark/light
-XTerm*color5:                S_magenta
-XTerm*color13:               S_violet
+xterm*color5:                S_magenta
+xterm*color13:               S_violet
 
 !! cyan dark/light
-XTerm*color6:                S_cyan
-XTerm*color14:               S_base1
+xterm*color6:                S_cyan
+xterm*color14:               S_base1
 
 !! white dark/light
-XTerm*color7:                S_base2
-XTerm*color15:               S_base3
+xterm*color7:                S_base2
+xterm*color15:               S_base3
 
 !! set scrollbar settings
-XTerm*jumpScroll:     true
-XTerm*scrollKey:      true
-XTerm*scrollBar:      true
-XTerm*rightScrollBar: true
+xterm*jumpScroll:     true
+xterm*scrollKey:      true
+xterm*scrollBar:      true
+xterm*rightScrollBar: true
 
 !! set screen buffer
-XTerm*saveLines: 50000
+xterm*saveLines: 50000
 
 !! configure term
-XTerm*loginShell:     true
-XTerm*visualBell:     true
-XTerm*VT100*geometry: 125x50
-XTerm*faceName:       inconsolata for powerline:antialias=true:hinting=true
-XTerm*faceSize:       12
-XTerm*borderWidth:    0
+xterm*loginShell:     true
+xterm*visualBell:     true
+xterm*VT100*geometry: 125x50
+xterm*faceName:       inconsolata for powerline:antialias=true:hinting=true
+xterm*faceSize:       12
+xterm*borderWidth:    0
