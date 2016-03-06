@@ -4,8 +4,8 @@
 
 # If not running interactively, don't do anything
 case $- in
-    *i*) ;;
-      *) return;;
+  *i*) ;;
+  *) return;;
 esac
 
 # don't put duplicate lines or lines starting with space in the history.
@@ -51,7 +51,7 @@ esac
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 if [ -n "$DISPLAY" -a "$TERM" == "xterm" ]; then
-    export TERM=xterm-256color
+  export TERM=xterm-256color
 fi
 
 # show git repo status in prompt
@@ -59,11 +59,11 @@ GIT_PS1_SHOWDIRTYSTATE=true
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
+  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+  alias ls='ls --color=auto'
+  alias grep='grep --color=auto'
+  alias fgrep='fgrep --color=auto'
+  alias egrep='egrep --color=auto'
 fi
 
 # tmux color alias
@@ -83,11 +83,11 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 
 # alias to help with case conversions
 upper2lower () {
-    echo "${@}" | tr '[:upper:]' '[:lower:]'
+  echo "${@}" | tr '[:upper:]' '[:lower:]'
 }
 
 lower2upper () {
-    echo "${@}" | tr '[:lower:]' '[:upper:]'
+  echo "${@}" | tr '[:lower:]' '[:upper:]'
 }
 
 # Alias definitions.
@@ -96,7 +96,7 @@ lower2upper () {
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
 if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+  . ~/.bash_aliases
 fi
 
 # enable programmable completion features (you don't need to enable
@@ -112,7 +112,7 @@ fi
 
 # add the ssl cert file env var if it exists
 if [ -f /usr/local/opt/curl-ca-bundle/share/ca-bundle.crt ]; then
-    export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
+  export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
 fi
 
 ### Added by the Heroku Toolbelt
@@ -124,11 +124,11 @@ PATH=/usr/local/bin:/usr/local/sbin:$PATH # Add /usr/local/(s)bin before /usr/(s
 
 # include extra scripts from .bashrc.d
 if [ -d "${HOME}/.bashrc.d" ]; then
-    for file in ${HOME}/.bashrc.d/*; do
-        if [ -x "${file}" ]; then
-            . "${file}"
-        fi
-    done
+  for file in ${HOME}/.bashrc.d/*; do
+    if [ -x "${file}" ]; then
+      . "${file}"
+    fi
+  done
 fi
 
 # Load RVM into a shell session *as a function*
