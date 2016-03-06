@@ -5,6 +5,11 @@ if exists('$DISPLAY')
     python powerline_setup()
     python del powerline_setup
   endif
+  if !empty(glob("/Library/Python/2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim"))
+    python from powerline.vim import setup as powerline_setup
+    python powerline_setup()
+    python del powerline_setup
+  endif
 endif
 
 " enable syntax checking

@@ -33,12 +33,16 @@ PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"'
 # enable the powerline shell and only in a fully featured console
 case "${TERM}" in
   xterm*|screen*)
-    if [[ -f "/usr/local/lib/python3.4/dist-packages/powerline/bindings/bash/powerline.sh" && -x "$(which powerline-daemon)" ]]; then
+    if [[ -x "$(which powerline-daemon)" ]]; then
       powerline-daemon -q
       export POWERLINE_BASH_CONTINUATION=1
       export POWERLINE_BASH_SELECT=1
 
-      source /usr/local/lib/python3.4/dist-packages/powerline/bindings/bash/powerline.sh
+      if [[ -f "/usr/local/lib/python3.4/dist-packages/powerline/bindings/bash/powerline.sh" ]]; then
+        source "/usr/local/lib/python3.4/dist-packages/powerline/bindings/bash/powerline.sh"
+      elif [[ -f "/Library/Python/2.7/site-packages/powerline/bindings/bash/powerline.sh" ]]; then
+        source "/Library/Python/2.7/site-packages/powerline/bindings/bash/powerline.sh"
+      fi
     fi
     ;;
 esac
