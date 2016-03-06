@@ -296,6 +296,22 @@ install_mac_prefs () {
   fi
 }
 
+install_powerline_config () {
+  info 'installing powerline config'
+
+  info 'creating powerline dir'
+  mkdir -p "${HOME}/.config/powerline"
+  success 'created powerline dir'
+
+  for source in `find "${DOTFILES_ROOT}" -maxdepth 2 -name \*.powerline_conf`
+  do
+    dest="${HOME}/.config/powerline/`basename \"${source%.*}\"`"
+
+    overwrite_backup_skip_link "${source}" "${dest}"
+
+  done
+}
+
 setup_sublime3
 setup_textmate2
 setup_gitconfig
@@ -306,6 +322,7 @@ install_desktopfiles
 install_gnupg_conf
 install_svn_conf
 install_mac_prefs
+install_powerline_config
 
 echo ''
 echo '  All installed!'
