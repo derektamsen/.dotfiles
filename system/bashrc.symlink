@@ -30,14 +30,18 @@ shopt -s checkwinsize
 # set shell window title
 PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
 
-# enable the powerline shell
-if [[ -f "/usr/local/lib/python3.4/dist-packages/powerline/bindings/bash/powerline.sh" && -x "$(which powerline-daemon)" ]]; then
-  powerline-daemon -q
-  export POWERLINE_BASH_CONTINUATION=1
-  export POWERLINE_BASH_SELECT=1
+# enable the powerline shell and only in a fully featured console
+case "${TERM}" in
+  xterm*)
+    if [[ -f "/usr/local/lib/python3.4/dist-packages/powerline/bindings/bash/powerline.sh" && -x "$(which powerline-daemon)" ]]; then
+      powerline-daemon -q
+      export POWERLINE_BASH_CONTINUATION=1
+      export POWERLINE_BASH_SELECT=1
 
-  source /usr/local/lib/python3.4/dist-packages/powerline/bindings/bash/powerline.sh
-fi
+      source /usr/local/lib/python3.4/dist-packages/powerline/bindings/bash/powerline.sh
+    fi
+    ;;
+esac
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"

@@ -97,10 +97,15 @@ install_fonts () {
   pushd /tmp
   wget https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf
   wget https://raw.githubusercontent.com/powerline/fonts/master/Inconsolata/Inconsolata%20for%20Powerline.otf
+  wget https://raw.githubusercontent.com/powerline/fonts/master/Inconsolata/fonts.scale
+  wget https://raw.githubusercontent.com/powerline/fonts/master/Inconsolata/fonts.dir
   wget https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf
 
-  mkdir -p "${HOME}/.fonts/truetype/powerline"
-  mv *.otf "${HOME}/.fonts/truetype/powerline/"
+  mkdir -p ${HOME}/.fonts/truetype/{powerline,Inconsolata}
+  mv PowerlineSymbols.otf "${HOME}/.fonts/truetype/powerline/"
+  mv 'Inconsolata for Powerline.otf' "${HOME}/.fonts/truetype/Inconsolata/"
+  mv *.scale "${HOME}/.fonts/truetype/Inconsolata/"
+  mv *.dir "${HOME}/.fonts/truetype/Inconsolata/"
   fc-cache -vf ~/.fonts/
 
   mkdir -p "${HOME}/.config/fontconfig/conf.d"
