@@ -13,12 +13,12 @@ XTerm*metaSendsEscape: true
 #define S_base2         rgb:ee/e8/d5
 #define S_base3         rgb:fd/f6/e3
 
-XTerm*vt100*background:       S_base03
-XTerm*vt100*foreground:       S_base0
-XTerm*fadeColor:              S_base03
-XTerm*cursorColor:            S_base1
-XTerm*pointerColorBackground: S_base01
-XTerm*pointerColorForeground: S_base1
+*background:             S_base03
+*foreground:             S_base0
+*fadeColor:              S_base03
+*cursorColor:            S_base1
+*pointerColorBackground: S_base01
+*pointerColorForeground: S_base1
 
 #define S_yellow        rgb:b5/89/00
 #define S_orange        rgb:cb/4b/16
@@ -76,4 +76,4 @@ XTerm*visualBell:     true
 XTerm*VT100*geometry: 125x50
 XTerm*faceName:       inconsolata for powerline:antialias=true:hinting=true
 XTerm*faceSize:       12
-XTerm*borderWidth: 0
+XTerm*borderWidth:    0

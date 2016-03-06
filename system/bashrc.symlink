@@ -28,7 +28,7 @@ shopt -s checkwinsize
 #shopt -s globstar
 
 # set shell window title
-PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
+PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"'
 
 # enable the powerline shell and only in a fully featured console
 case "${TERM}" in
