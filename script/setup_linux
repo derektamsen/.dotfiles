@@ -79,6 +79,10 @@ install_python_virtualenv () {
 install_pip_packages () {
   if [[ `type -P python` ]]; then
     if [[ `type -P pip3` ]]; then
+      packages_to_install=("pyuv")
+
+      info "Installing python packages via pip: ${packages_to_install[@]}"
+      sudo pip3 install ${packages_to_install[@]}
     else
       fail "Unable to locate pip"
     fi
