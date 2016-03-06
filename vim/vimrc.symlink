@@ -1,5 +1,5 @@
 " enable powerline
-if has('gui_running')
+if exists('$DISPLAY')
   if !empty(glob("/usr/local/lib/python3.4/dist-packages/powerline/bindings/vim/plugin/powerline.vim"))
     python from powerline.vim import setup as powerline_setup
     python powerline_setup()
@@ -11,15 +11,11 @@ endif
 syntax enable
 
 " enable solorized colors
-if has('gui_running')
-    set background=light
-    if has("gui_gtk2")
-      set guifont=Inconsolata\ 12
-    endif
-else
-    set background=dark
+if exists('$DISPLAY')
+    set guifont=Inconsolata\ 12
 endif
 set t_Co=256
+set background=dark
 colorscheme solarized
 
 " enable visual mouse and scrolling
@@ -77,7 +73,7 @@ cmap w!! w !sudo tee % >/dev/null
 
 set laststatus=2 " Always display the statusline in all windows
 
-if has('gui_running')
+if exists('$DISPLAY')
   set showtabline=2 " Always display the tabline, even if there is only one tab
   set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 endif

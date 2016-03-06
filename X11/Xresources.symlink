@@ -74,6 +74,6 @@ XTerm*saveLines: 50000
 XTerm*loginShell:     true
 XTerm*visualBell:     true
 XTerm*VT100*geometry: 125x50
-XTerm*faceName:       inconsolata for powerline:antialias=true
+XTerm*faceName:       inconsolata for powerline:antialias=true:hinting=true
 XTerm*faceSize:       12
 XTerm*borderWidth: 0
