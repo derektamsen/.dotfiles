@@ -25,77 +25,75 @@ fail () {
 }
 
 determine_os_type () {
-    if [[ -f '/etc/lsb-release' ]]; then
-        source '/etc/lsb-release'
-    else
-        fail "Unable to determine OS Type"
-    fi
+  if [[ -f '/etc/lsb-release' ]]; then
+    source '/etc/lsb-release'
+  else
+    fail "Unable to determine OS Type"
+  fi
 }
 
 install_pkgs () {
-    if [[ `type -P apt-get` ]]; then
-        packages_to_install=("wget" "curl" "vim" "git" "nmap" "rsync" "mtr-tiny" "iftop" "ipcalc" "tmux" "htop" "ruby" "python" "python-setuptools" "gcc" "make" "build-essential" "linux-headers-`uname -r`")
+  if [[ `type -P apt-get` ]]; then
+    packages_to_install=("wget" "curl" "vim" "git" "nmap" "rsync" "mtr-tiny" "iftop" "ipcalc" "tmux" "htop" "ruby" "python3" "python3-setuptools" "gcc" "make" "build-essential" "linux-headers-`uname -r`" "socat" "python3-psutil" "python3-pip" "python3-pygit2" "python3-pyuv")
 
-        info "Installing packages from apt: ${packages_to_install[@]}"
-        sudo apt-get install ${packages_to_install[@]} -y
-    else
-        fail "Unable to locate apt"
-    fi
+    info "Installing packages from apt: ${packages_to_install[@]}"
+    sudo apt-get install ${packages_to_install[@]} -y
+  else
+    fail "Unable to locate apt"
+  fi
 }
 
 install_rvm () {
-    if ! [[ `type -P rvm` ]]; then
-        echo "Installing rvm"
-        \curl -sSL https://get.rvm.io | bash -s stable
-    fi
+  if ! [[ `type -P rvm` ]]; then
+    echo "Installing rvm"
+    \curl -sSL https://get.rvm.io | bash -s stable
+  fi
 }
 
 install_ruby_versions () {
-    if [[ `type -P rvm` ]]; then
-        rubies_to_install=("1.9.3" "2.1")
+  if [[ `type -P rvm` ]]; then
+    rubies_to_install=("2.2")
 
-        for installing_ruby in "${rubies_to_install[@]}"; do
-            info "Installing ${installing_ruby} with rvm"
-            rvm install "${installing_ruby}"
-        done
-    else
-        fail "Unable to locate rvm"
-    fi
-}
-
-# install pip for python
-install_python_pip () {
-    if [[ `type -P python` ]]; then
-        if ! [[ `type -P pip` ]]; then
-            info "installing python pip"
-            sudo easy_install pip
-        fi
-    else
-        fail "Unable to locate python"
-    fi
+    for installing_ruby in "${rubies_to_install[@]}"; do
+      info "Installing ${installing_ruby} with rvm"
+      rvm install "${installing_ruby}"
+    done
+  else
+    fail "Unable to locate rvm"
+  fi
 }
 
 install_python_virtualenv () {
-    if [[ `type -P python` ]]; then
-        if [[ `type -P pip` ]]; then
-            info "installing python virtualenv"
-            sudo pip install virtualenv
-        else
-            fail "Unable to locate pip"
-        fi
+  if [[ `type -P python` ]]; then
+    if [[ `type -P pip3` ]]; then
+      info "installing python virtualenv"
+      sudo pip3 install virtualenv
     else
-        fail "Unable to locate python"
+      fail "Unable to locate pip"
     fi
+  else
+    fail "Unable to locate python"
+  fi
+}
+
+install_pip_packages () {
+  if [[ `type -P python` ]]; then
+    if [[ `type -P pip3` ]]; then
+    else
+      fail "Unable to locate pip"
+    fi
+  else
+      fail "Unable to locate python"
+  fi
 }
 
 determine_os_type
 
 if [[ "${DISTRIB_ID}" == 'Ubuntu' ]]; then
-    install_pkgs
-    install_rvm
-    install_ruby_versions
-    install_python_pip
-    install_python_virtualenv
+  install_pkgs
+  install_rvm
+  install_ruby_versions
+  install_python_virtualenv
 else
-    fail "This can only be run on Ubuntu"
+  fail "This can only be run on Ubuntu"
 fi
