@@ -6,6 +6,7 @@
       "metrics"
       "exception-reporting"
     ]
+    excludeVcsIgnoredPaths: false
   editor:
     fontFamily: "Inconsolata"
     invisibles: {}
