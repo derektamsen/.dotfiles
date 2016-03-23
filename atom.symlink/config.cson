@@ -1,5 +1,6 @@
 "*":
   "aligner-ruby": {}
+  "atom-alignment": {}
   core:
     audioBeep: false
     disabledPackages: [
