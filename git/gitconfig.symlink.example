@@ -2,20 +2,21 @@
 #
 
 [hub]
-        protocol = https
+  protocol = https
 [user]
-        name = AUTHORNAME
-        email = AUTHOREMAIL
+  name = AUTHORNAME
+  email = AUTHOREMAIL
 [alias]
-        co = checkout
+  co = checkout
 [color]
-        diff = auto
-        status = auto
-        branch = auto
-        ui = true
+  diff = auto
+  status = auto
+  branch = auto
+  ui = true
 [core]
-        excludesfile = ~/.gitignore_global
+  excludesfile = ~/.gitignore_global
 [credential]
-	helper = osxkeychain
+  helper = osxkeychain
 [push]
-	default = simple
+  default = simple
+
