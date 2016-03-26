@@ -36,3 +36,8 @@ lower2upper () {
   echo "${@}" | tr '[:lower:]' '[:upper:]'
 }
 
+# Get ASCII weather charts for either a default area or by city name
+weather () {
+  curl "http://wttr.in/${1:San_Francisco}"
+}
+
