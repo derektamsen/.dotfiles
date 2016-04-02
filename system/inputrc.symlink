@@ -1,0 +1,6 @@
+# source the system inputrc file
+$include /etc/inputrc
+
+# enable case insensitive tab completion
+set completion-ignore-case on
+
