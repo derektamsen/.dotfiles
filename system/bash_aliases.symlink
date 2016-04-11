@@ -41,3 +41,7 @@ weather () {
   curl "http://wttr.in/${1:San_Francisco}"
 }
 
+# clipboard copy and pasting
+alias clipcopy='xclip -sel clip'
+alias clippaste='xclip -o -sel clip'
+
