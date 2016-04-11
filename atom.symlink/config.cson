@@ -28,6 +28,7 @@
     oldVersion: false
     puppetLintExecutablePath: "/Users/tamsen/.rvm/gems/ruby-2.1.7@it-puppet/bin/puppet-lint"
   "linter-puppet-parse": {}
+  "merge-conflicts": {}
   "one-dark-ui": {}
   "ruby-test": {}
   "spell-check": {}
