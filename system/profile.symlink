@@ -141,10 +141,19 @@ set_terminal_appearance () {
   alias grep='grep --color=auto'
 }
 
+set_askpass () {
+  case "${OSTYPE}" in
+    linux-gnu*)
+      export SSH_ASKPASS=`which ssh-askpass`
+    ;;
+  esac
+}
+
 
 #### Run all the functions ####
 source_bashrc
 set_path
+set_askpass
 set_editor
 set_visual_view
 additional_bash_envs
