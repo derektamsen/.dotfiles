@@ -6,6 +6,7 @@
 [user]
 	name = AUTHORNAME
 	email = AUTHOREMAIL
+	signingkey = AUTHORGPGKEYID
 [alias]
 	co = checkout
 [color]
@@ -21,3 +22,5 @@
 	default = simple
 [receive]
 	fsckObjects = true
+[commit]
+	gpgsign = true
