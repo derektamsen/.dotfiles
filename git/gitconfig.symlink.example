@@ -17,8 +17,6 @@
 	excludesfile = ~/.gitignore_global
 	protectHFS = true
 	protectNTFS = true
-[credential]
-	helper = osxkeychain
 [push]
 	default = simple
 [receive]
