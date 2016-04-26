@@ -10,7 +10,6 @@
     excludeVcsIgnoredPaths: false
   editor:
     fontFamily: "Inconsolata"
-    fontSize: 15
     invisibles: {}
     showIndentGuide: true
     showInvisibles: true
