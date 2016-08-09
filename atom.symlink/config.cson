@@ -13,6 +13,7 @@
     invisibles: {}
     showIndentGuide: true
     showInvisibles: true
+    softWrap: true
   "git-plus": {}
   linter:
     subtleLinterErrors: [
